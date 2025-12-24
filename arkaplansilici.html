@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+       <meta charset="UTF-8">
+       <title>Basit Arka Plan Silici</title>
+       <link rel="shortcut icon" href="img/kagan.ico" type="image/x-icon">
+       <style>
+              * {
+                     margin: 0;
+                     padding: 0;
+                     box-sizing: border-box;
+                     text-decoration: none;
+                     border: none;
+                     outline: none;
+                     scroll-behavior: smooth;
+                     font-family: "Poppins", sans-serif;
+              }
+
+              :root {
+                     --bg-color: #0f0f1f;
+                     --second-bg-color: #1b1b3a;
+                     --text-color: #e0e0e0;
+                     --main-color: #00d4ff;
+                     --bg2-color: #101820;
+                     --second2-bg-color: #1a2735;
+                     --text2-color: #f1f1f1;
+                     --main2-color: #00ffa6;
+              }
+
+              html {
+                     font-size: 60%;
+                     overflow-x: hidden;
+              }
+
+              body {
+                     background-color: var(--bg-color);
+                     color: var(--text-color);
+                     font-family: "Poppins", sans-serif;
+                     padding: 10rem 12%;
+              }
+
+              /* Ana Konteynır - Sitedeki Kart Stili */
+              .container {
+                     max-width: 900px;
+                     margin: 5rem auto;
+                     background: var(--second-bg-color);
+                     padding: 4rem;
+                     border-radius: 3rem;
+                     border: 3px solid var(--main-color);
+                     box-shadow: 0 0 25px var(--main-color);
+                     text-align: center;
+              }
+
+              h1 {
+                     font-size: 4rem;
+                     font-weight: 800;
+                     margin-bottom: 3rem;
+                     text-shadow: 0 0 15px var(--main-color);
+              }
+
+              /* Canvas Alanı - Şeffaf Dama Tahtası Deseni */
+              canvas {
+                     max-width: 100%;
+                     border-radius: 2rem;
+                     margin-top: 3rem;
+                     border: 2px solid var(--main-color);
+                     background: repeating-conic-gradient(#333 0% 25%, #1b1b3a 0% 50%) 50% / 20px 20px;
+                     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+              }
+
+              /* Giriş Elemanları (Dosya Seçici, Color Picker) */
+              input[type="file"],
+              input[type="color"],
+              input[type="range"] {
+                     background: var(--bg-color);
+                     border: 1px solid var(--main-color);
+                     border-radius: 1rem;
+                     padding: 1rem;
+                     color: var(--text-color);
+                     margin: 1.5rem 1rem;
+              }
+
+              label {
+                     font-size: 1.6rem;
+                     font-weight: 500;
+                     color: var(--text-color);
+              }
+
+              #tolValue {
+                     font-size: 1.8rem;
+                     color: var(--main-color);
+                     font-weight: bold;
+              }
+
+              /* Butonlar - Sitedeki .btn Stili */
+              button {
+                     display: inline-block;
+                     padding: 1.2rem 2.8rem;
+                     margin: 1rem;
+                     box-shadow: 0 0 15px var(--main-color);
+                     color: black;
+                     background-color: var(--main-color);
+                     border-radius: 4rem;
+                     font-size: 1.6rem;
+                     font-weight: 600;
+                     cursor: pointer;
+                     transition: 0.3s ease-in-out;
+                     border: none;
+              }
+
+              button:hover {
+                     transform: scale(1.05);
+                     box-shadow: 0 0 30px var(--main-color);
+                     background-color: #fff;
+                     /* Hoverda beyaza dönen stil */
+              }
+
+              /* Range (Tolerans) Kaydırıcı Özelleştirme */
+              input[type="range"] {
+                     accent-color: var(--main-color);
+                     width: 200px;
+                     vertical-align: middle;
+              }
+
+              /* Mobil Uyumluluk */
+              @media (max-width: 768px) {
+                     body {
+                            padding: 5rem 5%;
+                     }
+
+                     .container {
+                            padding: 2rem;
+                     }
+
+                     h1 {
+                            font-size: 3rem;
+                     }
+
+                     button {
+                            width: 100%;
+                            margin: 1rem 0;
+                     }
+              }
+       </style>
+</head>
+
+<body>
+
+       <div class="container">
+                  <h1>🧹 Arka Plan Silici</h1>
+
+                  <input type="file" id="imageInput" accept="image/*"><br>
+
+                  <label>Arka Plan Rengi:</label>
+                  <input type="color" id="bgColor" value="#ffffff">
+
+                  <br>
+                  <label>Tolerans:</label>
+                  <input type="range" id="tolerance" min="0" max="100" value="30">
+                  <span id="tolValue">30</span>
+
+                  <br>
+                  <button onclick="removeBackground()">Arka Planı Sil</button>
+                  <button onclick="downloadImage()">PNG İndir</button>
+
+                  <canvas id="canvas"></canvas>
+       </div>
+
+       <script>
+              const canvas = document.getElementById("canvas");
+              const ctx = canvas.getContext("2d");
+              const img = new Image();
+
+              document.getElementById("imageInput").addEventListener("change", e => {
+                     const file = e.target.files[0];
+                     if (!file) return;
+
+                     const reader = new FileReader();
+                     reader.onload = () => img.src = reader.result;
+                     reader.readAsDataURL(file);
+              });
+
+              img.onload = () => {
+                     canvas.width = img.width;
+                     canvas.height = img.height;
+                     ctx.drawImage(img, 0, 0);
+              };
+
+              document.getElementById("tolerance").addEventListener("input", e => {
+                     document.getElementById("tolValue").innerText = e.target.value;
+              });
+
+              function hexToRgb(hex) {
+                     hex = hex.replace("#", "");
+                     return {
+                            r: parseInt(hex.substring(0, 2), 16),
+                            g: parseInt(hex.substring(2, 4), 16),
+                            b: parseInt(hex.substring(4, 6), 16)
+                     };
+              }
+
+              function removeBackground() {
+                     const bgColor = hexToRgb(document.getElementById("bgColor").value);
+                     const tolerance = parseInt(document.getElementById("tolerance").value);
+
+                     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                     const data = imageData.data;
+
+                     for (let i = 0; i < data.length; i += 4) {
+                            const r = data[i];
+                            const g = data[i + 1];
+                            const b = data[i + 2];
+
+                            const diff =
+                                   Math.abs(r - bgColor.r) +
+                                   Math.abs(g - bgColor.g) +
+                                   Math.abs(b - bgColor.b);
+
+                            if (diff < tolerance * 3) {
+                                   data[i + 3] = 0; // alpha → şeffaf
+                            }
+                     }
+
+                     ctx.putImageData(imageData, 0, 0);
+              }
+
+              function downloadImage() {
+                     const link = document.createElement("a");
+                     link.download = "arka_plani_silinmis.png";
+                     link.href = canvas.toDataURL("image/png");
+                     link.click();
+              }
+       </script>
+
+</body>
+
+</html>

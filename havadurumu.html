@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hava Durumu Uygulaması</title>
+    <link rel="shortcut icon" href="img/kagan.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0f0f1f;
+            --second-bg-color: #1b1b3a;
+            --text-color: #e0e0e0;
+            --main-color: #00d4ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .weather-card {
+            width: 90%;
+            max-width: 450px;
+            background: var(--second-bg-color);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid var(--main-color);
+            box-shadow: 0 0 20px var(--main-color);
+            text-align: center;
+        }
+
+        .search {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .search input {
+            border: 1px solid var(--main-color);
+            outline: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+            padding: 12px 20px;
+            height: 50px;
+            border-radius: 30px;
+            flex: 1;
+            font-size: 16px;
+        }
+
+        .search button {
+            border: 0;
+            outline: 0;
+            background: var(--main-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search button i {
+            font-size: 20px;
+            color: #000;
+        }
+
+        .weather {
+            display: block; /* Başlangıçta görünür kalsın */
+        }
+
+        .weather h1 {
+            font-size: 80px;
+            font-weight: 700;
+            color: var(--main-color);
+        }
+
+        .weather h2 {
+            font-size: 40px;
+            font-weight: 500;
+            margin-top: -10px;
+        }
+
+        .details {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            margin-top: 40px;
+        }
+
+        .col {
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+
+        .col i {
+            font-size: 30px;
+            margin-right: 10px;
+            color: var(--main-color);
+        }
+
+        .humidity, .wind {
+            font-size: 22px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--main-color);
+            text-decoration: none;
+            font-size: 14px;
+            border-bottom: 1px solid var(--main-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="weather-card">
+    <div class="search">
+        <input type="text" placeholder="Şehir ismi girin..." spellcheck="false" id="cityInput">
+        <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    
+    <div class="weather">
+        <h1 class="temp">--°C</h1>
+        <h2 class="city">Şehir</h2>
+        <div class="details">
+            <div class="col">
+                <i class="fa-solid fa-droplet"></i>
+                <div>
+                    <p class="humidity">--%</p>
+                    <p>Nem</p>
+                </div>
+            </div>
+            <div class="col">
+                <i class="fa-solid fa-wind"></i>
+                <div>
+                    <p class="wind">-- km/h</p>
+                    <p>Rüzgar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="projeler.html" class="back-btn">← Projelere Geri Dön</a>
+</div>
+
+<script>
+    const apiKey = "21e68acb738fb6572a670f239a303e13"; 
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+    const searchBox = document.getElementById("cityInput");
+    const searchBtn = document.getElementById("searchBtn");
+
+    async function checkWeather(city) {
+        if (!city) {
+            alert("Lütfen bir şehir ismi girin.");
+            return;
+        }
+
+        try {
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+            const data = await response.json();
+
+            console.log("API Yanıtı:", data); // Hata ayıklama için konsola yazdır
+
+            if (data.cod === 200) {
+                // Başarılı durum
+                document.querySelector(".city").innerHTML = data.name;
+                document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+                document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+                document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+            } else {
+                // API hata döndürdüğünde (Geçersiz anahtar, şehir bulunamadı vb.)
+                alert("Hata: " + data.message);
+            }
+
+        } catch (error) {
+            console.error("Bağlantı Hatası:", error);
+            alert("Veriler alınırken bir hata oluştu. İnternet bağlantınızı kontrol edin.");
+        }
+    }
+
+    searchBtn.addEventListener("click", () => {
+        checkWeather(searchBox.value);
+    });
+
+    searchBox.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            checkWeather(searchBox.value);
+        }
+    });
+</script>
+
+</body>
+</html>
