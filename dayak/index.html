@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kağanı Döv ya da Sev</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #999;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .character-section {
+            position: relative;
+            margin-bottom: 40px;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .character {
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: filter 0.3s ease;
+            filter: hue-rotate(0deg) brightness(1);
+        }
+
+        .character img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .health-bar-container {
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            height: 30px;
+            border: 2px solid #333;
+        }
+
+        .health-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00d084, #00d084);
+            width: 100%;
+            transition: width 0.5s ease, background 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .health-text {
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .effects {
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            pointer-events: none;
+        }
+
+        .effect-animation {
+            position: absolute;
+            font-size: 80px;
+            animation: floatUp 1s ease-out forwards;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(0.5);
+            }
+        }
+
+        .actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 40px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .action-btn:active {
+            transform: scale(0.95);
+        }
+
+        .action-btn span {
+            font-size: 14px;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        .tokat-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+        }
+
+        .sopasi-btn {
+            background: linear-gradient(135deg, #845ef7, #9775fa);
+            color: white;
+        }
+
+        .tatli-btn {
+            background: linear-gradient(135deg, #ff922b, #ffa94d);
+            color: white;
+        }
+
+        .opucuk-btn {
+            background: linear-gradient(135deg, #f06595, #f783ac);
+            color: white;
+        }
+
+        .reset-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #333;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            background: #555;
+        }
+
+        .game-over {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .game-over.show {
+            display: flex;
+        }
+
+        .game-over-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .game-over-content h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .game-over-content p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Bildirim Stilleri */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 40px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            width: 320px;
+            animation: slideIn 0.3s ease-out;
+            z-index: 999;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        .notification.hidden {
+            animation: slideOut 0.3s ease-out forwards;
+        }
+
+        .notification-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .notification-avatar {
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .notification-body {
+            padding: 12px 16px;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .notification-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: white;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Kağanı Döv ya da Sev</h1>
+        <p class="subtitle">Sevgilimin öfkesini yatıştır!</p>
+
+        <div class="character-section">
+            <div class="effects" id="effects"></div>
+            <div class="character" id="character">
+                <img src="/dayak/kagan.jpeg" alt="Kağan">
+            </div>
+            <div class="health-bar-container">
+                <div class="health-bar" id="healthBar" style="width: 100%">
+                    <span id="healthText">100/100</span>
+                </div>
+            </div>
+            <div class="health-text" id="statusText">Sağlıklı</div>
+        </div>
+
+        <div class="actions">
+            <button class="action-btn tokat-btn" onclick="takAction('tokat')">
+                👋
+                <span>Tokat<br>-20</span>
+            </button>
+            <button class="action-btn sopasi-btn" onclick="takAction('sopasi')">
+                🏏
+                <span>Sopası<br>-30</span>
+            </button>
+            <button class="action-btn tatli-btn" onclick="takAction('tatli')">
+                😊
+                <span>Tatlılık Yap<br>+15</span>
+            </button>
+            <button class="action-btn opucuk-btn" onclick="takAction('opucuk')">
+                💋
+                <span>Öpücük<br>+30</span>
+            </button>
+        </div>
+
+        <button class="reset-btn" onclick="resetGame()">Yeni Oyun Başlat</button>
+    </div>
+
+    <div class="game-over" id="gameOver">
+        <div class="game-over-content">
+            <h2 id="gameOverTitle">💔 Oyun Bitti!</h2>
+            <p id="gameOverMessage">Kağan tamamen yıkıldı!</p>
+            <button class="reset-btn" onclick="resetGame()">Tekrar Oyna</button>
+        </div>
+    </div>
+
+    <script>
+        let health = 100;
+        const maxHealth = 100;
+        let notificationInterval;
+
+        function takAction(action) {
+            let damage = 0;
+            let heal = 0;
+            let emoji = '';
+            let sound = '';
+            let hueChange = 0;
+
+            switch(action) {
+                case 'tokat':
+                    damage = 20;
+                    emoji = '👋';
+                    sound = 'slap';
+                    break;
+                case 'sopasi':
+                    damage = 30;
+                    emoji = '💥';
+                    sound = 'hit';
+                    break;
+                case 'tatli':
+                    heal = 15;
+                    emoji = '😊';
+                    sound = 'love';
+                    break;
+                case 'opucuk':
+                    heal = 30;
+                    emoji = '💋';
+                    sound = 'kiss';
+                    break;
+            }
+
+            if (damage > 0) {
+                health = Math.max(0, health - damage);
+                playSound(sound);
+            } else if (heal > 0) {
+                health = Math.min(maxHealth, health + heal);
+                playSound(sound);
+            }
+
+            showEffect(emoji);
+            updateCharacterColor();
+            updateHealthBar();
+
+            if (health === 0) {
+                endGame();
+            }
+        }
+
+        function showEffect(emoji) {
+            const effectsContainer = document.getElementById('effects');
+            const effect = document.createElement('div');
+            effect.className = 'effect-animation';
+            effect.textContent = emoji;
+            effect.style.left = Math.random() * 80 + 10 + '%';
+            effect.style.top = '50%';
+            effectsContainer.appendChild(effect);
+
+            setTimeout(() => effect.remove(), 1000);
+        }
+
+        function updateCharacterColor() {
+            const character = document.getElementById('character');
+            if (!character) return;
+            
+            const percent = health / maxHealth;
+            let brightness = 1;
+            let hueRotate = 0;
+
+            if (percent <= 1 && percent > 0.75) {
+                hueRotate = 0;
+                brightness = 1;
+            } else if (percent <= 0.75 && percent > 0.5) {
+                hueRotate = 30;
+                brightness = 1;
+            } else if (percent <= 0.5 && percent > 0.25) {
+                hueRotate = 0;
+                brightness = 0.7;
+            } else if (percent <= 0.25 && percent > 0) {
+                hueRotate = 0;
+                brightness = 0.5;
+            }
+
+            character.style.filter = `hue-rotate(${hueRotate}deg) brightness(${brightness})`;
+        }
+
+        function updateHealthBar() {
+            const healthBar = document.getElementById('healthBar');
+            const healthText = document.getElementById('healthText');
+            const statusText = document.getElementById('statusText');
+            const percent = (health / maxHealth) * 100;
+
+            healthBar.style.width = percent + '%';
+            healthText.textContent = health + '/' + maxHealth;
+
+            if (percent > 75) {
+                healthBar.style.background = 'linear-gradient(90deg, #00d084, #00d084)';
+                statusText.textContent = '✨ Sağlıklı';
+            } else if (percent > 50) {
+                healthBar.style.background = 'linear-gradient(90deg, #ffd93d, #ffd93d)';
+                statusText.textContent = '😐 Biraz canı var';
+            } else if (percent > 25) {
+                healthBar.style.background = 'linear-gradient(90deg, #ff922b, #ff922b)';
+                statusText.textContent = '😤 Çok acı çekiyor';
+            } else if (percent > 0) {
+                healthBar.style.background = 'linear-gradient(90deg, #ff6b6b, #ff6b6b)';
+                statusText.textContent = '😭 Neredeyse bitti!';
+            }
+        }
+
+        function playSound(type) {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const now = audioContext.currentTime;
+
+            if (type === 'slap') {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                osc.connect(gain);
+                gain.connect(audioContext.destination);
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(50, now + 0.1);
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+                osc.start(now);
+                osc.stop(now + 0.1);
+            } else if (type === 'hit') {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                osc.connect(gain);
+                gain.connect(audioContext.destination);
+                osc.frequency.setValueAtTime(200, now);
+                osc.frequency.exponentialRampToValueAtTime(100, now + 0.15);
+                gain.gain.setValueAtTime(0.4, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+                osc.start(now);
+                osc.stop(now + 0.15);
+            } else if (type === 'love') {
+                const notes = [300, 400, 500];
+                notes.forEach((freq, i) => {
+                    const osc = audioContext.createOscillator();
+                    const gain = audioContext.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioContext.destination);
+                    osc.frequency.value = freq;
+                    gain.gain.setValueAtTime(0.15, now + i * 0.1);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + i * 0.1 + 0.1);
+                    osc.start(now + i * 0.1);
+                    osc.stop(now + i * 0.1 + 0.1);
+                });
+            } else if (type === 'kiss') {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                osc.connect(gain);
+                gain.connect(audioContext.destination);
+                osc.frequency.setValueAtTime(800, now);
+                osc.frequency.exponentialRampToValueAtTime(400, now + 0.2);
+                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+                osc.start(now);
+                osc.stop(now + 0.2);
+            }
+        }
+
+        function endGame() {
+            const gameOverElement = document.getElementById('gameOver');
+            const statusText = document.getElementById('statusText');
+            statusText.textContent = '☠️ Öldü!';
+            gameOverElement.classList.add('show');
+            clearInterval(notificationInterval);
+        }
+
+        function resetGame() {
+            health = maxHealth;
+            document.getElementById('gameOver').classList.remove('show');
+            document.getElementById('character').style.filter = 'hue-rotate(0deg) brightness(1)';
+            updateHealthBar();
+            updateCharacterColor();
+            startNotifications();
+        }
+
+        function showNotification() {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <div class="notification-header">
+                    <div class="notification-avatar">💬</div>
+                    <div>Kağan</div>
+                    <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+                </div>
+                <div class="notification-body">
+                    Badeye çok aşığım 💕
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('hidden');
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+
+        function startNotifications() {
+            clearInterval(notificationInterval);
+            notificationInterval = setInterval(() => {
+                if (health > 0) {
+                    showNotification();
+                }
+            }, 5000);
+        }
+
+        updateHealthBar();
+        startNotifications();
+    </script>
+</body>
+</html>
