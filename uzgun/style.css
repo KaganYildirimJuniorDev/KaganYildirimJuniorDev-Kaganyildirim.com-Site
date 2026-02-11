@@ -1,0 +1,669 @@
+/* ============================================
+   BIZIM HIKAYEMIZ - ROMANTIC APOLOGY WEBSITE
+   Pastel Purple-Pink Theme (Lavender)
+   ============================================ */
+
+/* CSS CUSTOM PROPERTIES */
+:root {
+    --primary-purple: #C8A2D0;
+    --light-purple: #E6D5F0;
+    --lavender: #D8BFD8;
+    --soft-pink: #F4C2D9;
+    --rose-pink: #FFB6D9;
+    --white: #FFFFFF;
+    --cream: #FFF8F0;
+    --dark-text: #4A3B5C;
+    --light-text: #7D6B8F;
+    --shadow: rgba(200, 162, 208, 0.4);
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.4);
+}
+
+/* RESET & BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-text);
+    background: linear-gradient(135deg, var(--light-purple) 0%, var(--cream) 50%, var(--soft-pink) 100%);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* SECTION SPACING */
+.section {
+    padding: 100px 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SECTION TITLES */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--primary-purple);
+    text-shadow: 2px 2px 4px var(--shadow);
+}
+
+/* GLASSMORPHISM CARD */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 25px;
+    border: 2px solid var(--glass-border);
+    padding: 40px;
+    box-shadow: 0 10px 40px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px var(--shadow);
+}
+
+/* ============================================
+   1️⃣ HERO SECTION
+   ============================================ */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #C8A2D0 0%, #E6D5F0 50%, #F4C2D9 100%);
+    background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1920&h=1080&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(200, 162, 208, 0.7), rgba(244, 194, 217, 0.6));
+    backdrop-filter: blur(2px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--white);
+    animation: fadeInUp 1s ease-out;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 300;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.hero-btn {
+    padding: 18px 55px;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 600;
+    color: var(--dark-text);
+    background: var(--white);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    background: var(--cream);
+}
+
+/* ============================================
+   2️⃣ OUR STORY SECTION
+   ============================================ */
+.our-story-section {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--light-purple) 100%);
+}
+
+.story-card {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.story-text {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    line-height: 1.9;
+    margin-bottom: 30px;
+    color: var(--light-text);
+}
+
+.story-date {
+    margin: 35px 0;
+}
+
+.date-label {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    color: var(--light-text);
+    margin-bottom: 10px;
+}
+
+.date-value {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    color: var(--primary-purple);
+}
+
+.day-counter {
+    margin-top: 35px;
+    padding: 25px;
+    background: linear-gradient(135deg, var(--primary-purple), var(--soft-pink));
+    border-radius: 20px;
+    box-shadow: 0 8px 25px var(--shadow);
+}
+
+.counter-text {
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    font-weight: 600;
+    color: var(--white);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    line-height: 1.6;
+}
+
+/* ============================================
+   3️⃣ PHOTO GALLERY
+   ============================================ */
+.gallery-section {
+    background: linear-gradient(135deg, var(--light-purple) 0%, var(--cream) 100%);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 4/3;
+}
+
+.gallery-item:hover {
+    transform: scale(1.06);
+    box-shadow: 0 15px 40px var(--shadow);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: linear-gradient(to top, rgba(74, 59, 92, 0.85), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-caption {
+    color: var(--white);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ============================================
+   4️⃣ 10 THINGS I LOVE ABOUT YOU
+   ============================================ */
+.love-section {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 100%);
+}
+
+.love-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.love-card {
+    position: relative;
+    text-align: center;
+    padding: 35px 25px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.love-number {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--primary-purple);
+    opacity: 0.3;
+}
+
+.love-text {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.7;
+    color: var(--dark-text);
+    margin: 10px 0;
+}
+
+.heart-icon {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.love-card:hover .heart-icon {
+    opacity: 1;
+    transform: scale(1);
+    animation: heartPulse 1s ease infinite;
+}
+
+/* ============================================
+   5️⃣ APOLOGY SECTION
+   ============================================ */
+.apology-section {
+    background: linear-gradient(135deg, var(--light-purple) 0%, var(--cream) 100%);
+}
+
+.apology-card {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.apology-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--primary-purple);
+    margin-bottom: 30px;
+}
+
+.apology-text {
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    line-height: 1.9;
+    margin-bottom: 20px;
+    color: var(--dark-text);
+}
+
+.apology-footer {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    line-height: 1.9;
+    margin-top: 40px;
+    color: var(--light-text);
+    font-style: italic;
+}
+
+/* ============================================
+   6️⃣ FINAL QUESTION SECTION
+   ============================================ */
+.question-section {
+    position: relative;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--light-purple) 100%);
+    min-height: 100vh;
+}
+
+.question-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700;
+    text-align: center;
+    color: var(--primary-purple);
+    margin-bottom: 60px;
+}
+
+.button-container {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.yes-btn {
+    padding: 22px 65px;
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    font-weight: 600;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--primary-purple), var(--rose-pink));
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px var(--shadow);
+}
+
+.no-btn {
+    padding: 18px 45px;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 600;
+    color: var(--dark-text);
+    background: var(--white);
+    border: 3px solid var(--primary-purple);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.thank-you-message {
+    margin-top: 50px;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    padding: 0 20px;
+}
+
+.thank-you-message.hidden {
+    opacity: 0;
+    display: none;
+}
+
+.thank-you-text {
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+    font-weight: 600;
+    color: var(--primary-purple);
+    line-height: 1.9;
+    padding: 35px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+/* Heart Particles */
+.heart-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.heart-particle {
+    position: absolute;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    animation: floatHeart 3s ease-in-out forwards;
+    opacity: 0;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-purple), var(--soft-pink));
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1), transparent);
+    pointer-events: none;
+}
+
+.footer-text {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--white);
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+.footer-subtitle {
+    position: relative;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--white);
+    font-weight: 300;
+    opacity: 0.95;
+    font-style: italic;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In (for scroll animations) */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Heart Pulse */
+@keyframes heartPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Float Heart */
+@keyframes floatHeart {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-1000px) rotate(360deg);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE FIRST
+   ============================================ */
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 60px 15px;
+        min-height: auto;
+    }
+
+    .glass-card {
+        padding: 25px 20px;
+    }
+
+    .hero-section {
+        background-attachment: scroll;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .love-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .yes-btn,
+    .no-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+    .section {
+        padding: 80px 20px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .love-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large Tablet / Small Desktop */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .love-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+    .hero-btn,
+    .yes-btn,
+    .no-btn,
+    .music-btn {
+        padding: 20px 40px;
+        min-height: 50px;
+    }
+
+    .gallery-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(74, 59, 92, 0.7), transparent);
+    }
+
+    .heart-icon {
+        opacity: 0.5;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 896px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 100vh;
+    }
+
+    .section {
+        min-height: auto;
+        padding: 60px 20px;
+    }
+}
+
+/* High Resolution Displays */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1400px;
+    }
+}
