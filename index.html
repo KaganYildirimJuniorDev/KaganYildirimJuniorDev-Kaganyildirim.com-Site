@@ -1,0 +1,1047 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Ali Kagan Yildirim — Aksaray Üniversitesi Yazılım Mühendisliği 3. sınıf öğrencisi. Siber güvenlik uzmanlığına yönelen, sızma testi ve güvenli yazılım geliştirme konularında aktif olarak kendini geliştiren araştırmacı." />
+  <meta name="keywords"
+    content="siber güvenlik, penetrasyon testi, sızma testi, yazılım güvenliği, Hack The Box, TryHackMe" />
+  <meta name="author" content="Ali Kagan Yildirim" />
+  <title>Auxy — Siber Güvenlik & Yazılım Geliştirme</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fira+Code:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════ NAV ═══ -->
+  <nav id="navbar" role="navigation" aria-label="Ana navigasyon">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" id="nav-logo-link">
+        <span class="logo-bracket">[</span>Auxy<span class="logo-accent">_</span><span class="logo-bracket">]</span>
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menüyü aç/kapat" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#hero" class="nav-link" data-section="hero">Ana Sayfa</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">Hakkımda & Lablar</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Araçlar & Projeler</a></li>
+        <li><a href="#achievements" class="nav-link" data-section="achievements">Başarılar</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">İletişim</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════ HERO ══ -->
+    <section id="hero" class="section hero-section" aria-label="Giriş bölümü">
+      <div class="hero-inner">
+        <div class="hero-label">
+          <span class="label-dot"></span>
+          <span class="label-text mono">Sistem Aktif</span>
+        </div>
+        <h1 class="hero-title">
+          Yazılım Müh. Öğrencisi<br />
+          <span class="title-accent">&amp; Siber Güvenlik</span><br />
+          Yolcusu
+        </h1>
+        <p class="hero-sub">
+          Aksaray Üniversitesi Yazılım Mühendisliği 3. sınıf öğrencisiyim. Siber güvenlik uzmanlığına geçişi
+          hedefliyorum;
+          sızma testi, ağ güvenliği ve güvenli yazılım geliştirme üzerine aktif olarak kendimi yetiştiriyorum.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-outline" id="hero-cta-writeups">Çözüm Analizlerini Gör</a>
+          <a href="#contact" class="btn btn-ghost" id="hero-cta-contact">İletişime Geç</a>
+        </div>
+        <div class="hero-stats" role="list" aria-label="İstatistikler">
+          <div class="stat-item" role="listitem">
+            <span class="stat-num mono" data-target="3">0</span>
+            <span class="stat-label">Yıl Eğitim</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-num mono" data-target="6">0</span>
+            <span class="stat-label">Kişisel Proje</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-num mono" data-target="2">0</span>
+            <span class="stat-label">Sertifika</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-terminal" aria-hidden="true">
+        <div class="terminal-bar">
+          <span class="t-dot t-red"></span>
+          <span class="t-dot t-yellow"></span>
+          <span class="t-dot t-green"></span>
+          <span class="t-title">bash — kagan@root:~</span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <div class="t-line"><span class="t-prompt">kagan@root:~$</span> <span class="t-cmd">whoami</span></div>
+          <div class="t-line t-out">ali_kagan_yildirim</div>
+          <div class="t-line"><span class="t-prompt">kagan@root:~$</span> <span class="t-cmd">cat status.txt</span>
+          </div>
+          <div class="t-line t-out">Aksaray University — SE Year 3</div>
+          <div class="t-line t-out">Goal: Cybersecurity Specialist</div>
+          <div class="t-line"><span class="t-prompt">kagan@root:~$</span> <span class="t-cmd">ls learning/</span></div>
+          <div class="t-line t-out">pentest/ web_security/ ctf/</div>
+          <div class="t-line t-out">python_tools/ network_audit/</div>
+          <div class="t-line"><span class="t-prompt">kagan@root:~$</span> <span class="t-cmd t-cursor"
+              id="terminal-cursor">_</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ ABOUT ═ -->
+    <section id="about" class="section about-section" aria-label="Hakkımda bölümü">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag mono">// 01</span>
+          <h2 class="section-title">Hakkımda & Güvenlik Labları</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Profile & Bio -->
+        <div class="about-grid">
+          <div class="about-bio">
+            <h3 class="sub-heading mono">Profil_</h3>
+            <p class="body-text">
+              Aksaray Üniversitesi Yazılım Mühendisliği bölümünde 3. sınıf öğrencisiyim.
+              Lisans eğitimim boyunca edindiğim yazılım geliştirme temellerini siber güvenliğe taşımayı hedefliyorum.
+            </p>
+            <p class="body-text">
+              TryHackMe ve CTF platformlarında aktif olarak pratik yapıyorum. Sızma testi metodolojileri, web uygulama
+              güvenliği ve
+              Python ile küçük güvenlik araçları geliştirme konularında kendimi sürekli geliştiriyorum.
+            </p>
+            <div class="bio-tags">
+              <span class="tag mono">Penetrasyon Testi</span>
+              <span class="tag mono">Web Güvenliği</span>
+              <span class="tag mono">CTF</span>
+              <span class="tag mono">Python</span>
+              <span class="tag mono">C#</span>
+              <span class="tag mono">Ağ Denetimi</span>
+            </div>
+          </div>
+
+          <!-- Platform Cards -->
+          <div class="about-platforms">
+            <h3 class="sub-heading mono">Platform Profilleri_</h3>
+            <div class="platform-cards">
+              <div class="platform-card" id="htb-card">
+                <div class="platform-card-header">
+                  <div class="platform-icon htb-icon">HTB</div>
+                  <div class="platform-info">
+                    <span class="platform-name">Hack The Box</span>
+                    <span class="platform-handle mono">@kaganyildirim</span>
+                  </div>
+                  <div class="platform-status status-active">
+                    <span class="status-dot"></span>
+                    <span>Aktif</span>
+                  </div>
+                </div>
+                <div class="platform-metrics">
+                  <div class="metric">
+                    <span class="metric-val mono">Pro</span>
+                    <span class="metric-key">Hacker</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-val mono">21</span>
+                    <span class="metric-key">User Own</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-val mono">13</span>
+                    <span class="metric-key">Root Own</span>
+                  </div>
+                </div>
+                <div class="platform-bar-wrap">
+                  <div class="platform-bar" style="--fill: 62%"></div>
+                </div>
+              </div>
+
+              <div class="platform-card" id="thm-card">
+                <div class="platform-card-header">
+                  <div class="platform-icon thm-icon">THM</div>
+                  <div class="platform-info">
+                    <span class="platform-name">TryHackMe</span>
+                    <span class="platform-handle mono">@kaganyildirim</span>
+                  </div>
+                  <div class="platform-status status-active">
+                    <span class="status-dot"></span>
+                    <span>Aktif</span>
+                  </div>
+                </div>
+                <div class="platform-metrics">
+                  <div class="metric">
+                    <span class="metric-val mono">Top 30%</span>
+                    <span class="metric-key">Küresel Sıra</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-val mono">48</span>
+                    <span class="metric-key">Oda Tamamlandı</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-val mono">580</span>
+                    <span class="metric-key">Puan</span>
+                  </div>
+                </div>
+                <div class="platform-bar-wrap">
+                  <div class="platform-bar" style="--fill: 78%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="skills-wrap">
+          <h3 class="sub-heading mono">Temel Yetkinlikler_</h3>
+          <div class="skills-grid">
+            <div class="skill-card" id="skill-pentest">
+              <div class="skill-icon mono">01</div>
+              <h4 class="skill-title">Sızma Testi</h4>
+              <p class="skill-desc">Web uygulamaları, ağlar ve aktif dizin ortamlarında metodolojik saldırı simülasyonu.
+              </p>
+              <div class="skill-tools">
+                <span class="tool-tag mono">Nmap</span>
+                <span class="tool-tag mono">Metasploit</span>
+                <span class="tool-tag mono">Burp Suite</span>
+              </div>
+            </div>
+            <div class="skill-card" id="skill-vuln">
+              <div class="skill-icon mono">02</div>
+              <h4 class="skill-title">Exploit Analizi</h4>
+              <p class="skill-desc">CVE araştırması, kavram kanıtı geliştirme ve güvenlik açığı zinciri analizi.</p>
+              <div class="skill-tools">
+                <span class="tool-tag mono">GDB</span>
+                <span class="tool-tag mono">Ghidra</span>
+                <span class="tool-tag mono">pwndbg</span>
+              </div>
+            </div>
+            <div class="skill-card" id="skill-web">
+              <div class="skill-icon mono">03</div>
+              <h4 class="skill-title">SQLi / XSS Önleme</h4>
+              <p class="skill-desc">Web güvenlik açıklarının tespiti, OWASP Top 10 metodolojisi ve güvenli kodlama
+                pratikleri.</p>
+              <div class="skill-tools">
+                <span class="tool-tag mono">SQLMap</span>
+                <span class="tool-tag mono">OWASP ZAP</span>
+                <span class="tool-tag mono">Nikto</span>
+              </div>
+            </div>
+            <div class="skill-card" id="skill-net">
+              <div class="skill-icon mono">04</div>
+              <h4 class="skill-title">Ağ Denetimi</h4>
+              <p class="skill-desc">Trafik analizi, protokol incelemesi ve ağ altyapısı güvenlik değerlendirmesi.</p>
+              <div class="skill-tools">
+                <span class="tool-tag mono">Wireshark</span>
+                <span class="tool-tag mono">tcpdump</span>
+                <span class="tool-tag mono">Nessus</span>
+              </div>
+            </div>
+            <div class="skill-card" id="skill-code">
+              <div class="skill-icon mono">05</div>
+              <h4 class="skill-title">Güvenli Kodlama</h4>
+              <p class="skill-desc">Python ve C# ile güvenlik araçları, otomasyon betikleri ve güvenli API geliştirme.
+              </p>
+              <div class="skill-tools">
+                <span class="tool-tag mono">Python</span>
+                <span class="tool-tag mono">C#</span>
+                <span class="tool-tag mono">Bash</span>
+              </div>
+            </div>
+            <div class="skill-card" id="skill-cv">
+              <div class="skill-icon mono">06</div>
+              <h4 class="skill-title">Görüntü İşleme</h4>
+              <p class="skill-desc">Nesne tespiti, görüntü segmentasyonu ve bilgisayarlı görü tabanlı güvenlik
+                uygulamaları geliştirme.</p>
+              <div class="skill-tools">
+                <span class="tool-tag mono">OpenCV</span>
+                <span class="tool-tag mono">Pillow</span>
+                <span class="tool-tag mono">NumPy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ PROJECTS -->
+    <section id="projects" class="section projects-section" aria-label="Projeler bölümü">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag mono">// 02</span>
+          <h2 class="section-title">Araçlar & Projeler</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="projects-filter" role="group" aria-label="Proje filtresi">
+          <button class="filter-btn active" data-filter="all" id="filter-all">Tümü</button>
+          <button class="filter-btn" data-filter="tool" id="filter-tool">Güvenlik Aracı</button>
+          <button class="filter-btn" data-filter="web" id="filter-web">Web Güvenliği</button>
+          <button class="filter-btn" data-filter="ctf" id="filter-ctf">CTF Çözümü</button>
+          <button class="filter-btn" data-filter="software" id="filter-software">Yazılım Projeleri</button>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+
+          <article class="project-card" data-category="tool" id="proj-netscan">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Güvenlik Aracı</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">PyNetScanner</h3>
+              <p class="project-desc">Python ile geliştirilmiş çok iş parçacıklı ağ tarayıcısı. Port tarama, servis
+                tespiti ve OS parmak izi alma yetenekleriyle donatılmış CLI aracı.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">Socket</span>
+              <span class="proj-tag mono">Threading</span>
+              <span class="proj-tag mono">CLI</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web" id="proj-sqli">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Web Güvenliği</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">SQLi Güvenli Form Kütüphanesi</h3>
+              <p class="project-desc">C# ile yazılmış hazır güvenli form bileşeni. Parametreli sorgular, whitelist
+                doğrulama ve XSS sanitizasyonu entegre edilmiş.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">C#</span>
+              <span class="proj-tag mono">.NET</span>
+              <span class="proj-tag mono">OWASP</span>
+              <span class="proj-tag mono">SQL</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="tool" id="proj-recon">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Güvenlik Aracı</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">AutoRecon-TR</h3>
+              <p class="project-desc">Sızma testi öncesi otomatik keşif aracı. Subdomain enumeration, DNS analizi ve
+                açık port raporlamasını birleştirir.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">DNS</span>
+              <span class="proj-tag mono">Recon</span>
+              <span class="proj-tag mono">OSINT</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="ctf" id="proj-ctf1">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">CTF Çözümü</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">HTB — Active Çözüm Analizi</h3>
+              <p class="project-desc">Active Directory Kerberoasting saldırısı, Group Policy Preferences şifre ele
+                geçirme ve privilege escalation zincirinin detaylı analizi.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Windows AD</span>
+              <span class="proj-tag mono">Kerberoasting</span>
+              <span class="proj-tag mono">GPP</span>
+              <span class="proj-tag mono">HTB</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="web" id="proj-fuzzer">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Web Güvenliği</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">WebFuzz Modülü</h3>
+              <p class="project-desc">HTTP endpoint fuzzing için özelleştirilebilir Python modülü. Wordlist desteği,
+                yanıt kodları filtreleme ve çıktı raporlama içerir.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">HTTP</span>
+              <span class="proj-tag mono">Fuzzing</span>
+              <span class="proj-tag mono">Requests</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="ctf" id="proj-ctf2">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">CTF Çözümü</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">THM — Buffer Overflow Analizi</h3>
+              <p class="project-desc">Stack tabanlı buffer overflow istismar geliştirme süreci: fuzzing, offset tespiti,
+                bad char analizi ve shellcode enjeksiyonu.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Buffer Overflow</span>
+              <span class="proj-tag mono">x86 ASM</span>
+              <span class="proj-tag mono">Immunity</span>
+              <span class="proj-tag mono">THM</span>
+            </div>
+          </article>
+
+          <!-- ── Web & Otomasyon ── -->
+          <article class="project-card" data-category="software" id="proj-asenaiha">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Web & Otomasyon</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">AsenaIHA</h3>
+              <p class="project-desc">Sabit kanatlı İHA projelerinde sistem arayüzlerinin web tabanlı sunumu için
+                geliştirilmiş modern UI/UX tasarım çalışması.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">HTML5</span>
+              <span class="proj-tag mono">CSS3</span>
+              <span class="proj-tag mono">UI/UX</span>
+              <span class="proj-tag mono">İHA</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="software" id="proj-projekon">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Web & Otomasyon</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">ProjeKontrolSistemi</h3>
+              <p class="project-desc">Ekiplerin iş dağılımı, görev takibi ve yönetimsel süreçlerini optimize eden;
+                patron-çalışan koordinasyonunu tek çatı altında toplayan web yönetim paneli.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">HTML5</span>
+              <span class="proj-tag mono">CSS3</span>
+              <span class="proj-tag mono">JavaScript</span>
+              <span class="proj-tag mono">Dashboard</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="software" id="proj-portfolio">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Web & Otomasyon</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">KaganYildirim — Portfolyo Sitesi</h3>
+              <p class="project-desc">Web geliştirme yetkinliklerini ve projeleri sergilemek amacıyla modern web
+                standartlarına (HTML5/CSS3) uygun tasarlanmış kişisel portfolyo ve CV sitesi.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">HTML5</span>
+              <span class="proj-tag mono">CSS3</span>
+              <span class="proj-tag mono">JavaScript</span>
+              <span class="proj-tag mono">Portfolyo</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="software" id="proj-motivasyon">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Web & Otomasyon</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">Motivasyon Uygulaması</h3>
+              <p class="project-desc">Belirli aralıklarla anlık bildirimler (push notifications) gönderen ve dinamik
+                veri yönetimi sağlayan müşteri odaklı motivasyon uygulaması.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">JavaScript</span>
+              <span class="proj-tag mono">Push API</span>
+              <span class="proj-tag mono">UI/UX</span>
+              <span class="proj-tag mono">Bildirim</span>
+            </div>
+          </article>
+
+          <!-- ── Görüntü İşleme & YZ ── -->
+          <article class="project-card" data-category="software" id="proj-plaka">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Görüntü İşleme & YZ</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">Python_PlakaTanima</h3>
+              <p class="project-desc">Computer Vision teknikleriyle araç plakalarını tespit eden; karakter segmentasyonu
+                ve OCR süreçlerini barındıran akıllı trafik/güvenlik sistemi.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">OpenCV</span>
+              <span class="proj-tag mono">OCR</span>
+              <span class="proj-tag mono">CV</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="software" id="proj-faceid">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Görüntü İşleme & YZ</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">Arduino-Python FaceID</h3>
+              <p class="project-desc">Python'da işlenen yüz tanıma (FaceID) verileriyle Arduino üzerindeki kilit
+                mekanizmalarını tetikleyen donanım-yazılım entegrasyon projesi.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">Arduino</span>
+              <span class="proj-tag mono">OpenCV</span>
+              <span class="proj-tag mono">FaceID</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="software" id="proj-hareket">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Görüntü İşleme & YZ</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">VideodanHareketlereGoreGorevYaptirma</h3>
+              <p class="project-desc">MediaPipe ile gerçek zamanlı iskelet takibi yapan; tanımlanan jest/hareketlere
+                göre sistem görevleri tetikleyen insan-bilgisayar etkileşimi (HCI) projesi.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">MediaPipe</span>
+              <span class="proj-tag mono">OpenCV</span>
+              <span class="proj-tag mono">HCI</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="software" id="proj-ocr">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Görüntü İşleme & YZ</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">ResimdenYaziOkuma</h3>
+              <p class="project-desc">EasyOCR ve OpenCV ile görsellerdeki metin alanlarını tespit eden; gürültü azaltma
+                filtreleriyle okuma doğruluğunu optimize eden dijitalleştirme aracı.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">EasyOCR</span>
+              <span class="proj-tag mono">OpenCV</span>
+              <span class="proj-tag mono">OCR</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="software" id="proj-coords">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Görüntü İşleme & YZ</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">Python-ClickToCoordinates</h3>
+              <p class="project-desc">Görsel üzerinde tıklanan alanların piksel koordinatlarını ve ROI (Region of
+                Interest) sınırlarını dinamik olarak veren veri etiketleme yardımcı aracı.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">OpenCV</span>
+              <span class="proj-tag mono">ROI</span>
+              <span class="proj-tag mono">Araç</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="software" id="proj-serit">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Görüntü İşleme & YZ</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">Python-Serit-Takibi</h3>
+              <p class="project-desc">YOLO ile nesne tespiti ve OpenCV ile şerit analizi yapan; güvenli duruş mesafesi
+                ve rotayı hesaplayan otonom sürüş simülasyon altyapısı.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">YOLO</span>
+              <span class="proj-tag mono">OpenCV</span>
+              <span class="proj-tag mono">Otonom</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="software" id="proj-hsv">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Görüntü İşleme & YZ</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">HsvRenkBulucusu</h3>
+              <p class="project-desc">Ortam ışık değişimlerine göre en doğru HSV eşik değerlerini bulan; nesne maskeleme
+                ve renk tabanlı takip işlemlerini kolaylaştıran kalibrasyon aracı.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">OpenCV</span>
+              <span class="proj-tag mono">HSV</span>
+              <span class="proj-tag mono">Kalibrasyon</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="software" id="proj-yolov8">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Görüntü İşleme & YZ</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">GoruntuIsleme-YOLOv8</h3>
+              <p class="project-desc">YOLOv8 derin öğrenme mimarisi kullanarak canlı video akışlarında yüksek doğrulukla
+                çoklu nesne tespiti ve sınıflandırma yapan YZ projesi.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">YOLOv8</span>
+              <span class="proj-tag mono">OpenCV</span>
+              <span class="proj-tag mono">Deep Learning</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="software" id="proj-bgr">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Görüntü İşleme & YZ</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">BGR_RenkOlusturucu</h3>
+              <p class="project-desc">Dijital renk uzaylarını (RGB/BGR) ve piksel manipülasyon mantığını kavramak
+                amacıyla geliştirilmiş temel görüntü işleme başlangıç uygulaması.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">OpenCV</span>
+              <span class="proj-tag mono">BGR/RGB</span>
+              <span class="proj-tag mono">Başlangıç</span>
+            </div>
+          </article>
+
+          <!-- ── Siber Güvenlik & Sistem Araçları ── -->
+          <article class="project-card" data-category="tool" id="proj-sifre">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Güvenlik Aracı</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">Python-Sifre-Kirici</h3>
+              <p class="project-desc">Kriptografik süreçleri anlamak için geliştirilmiş; temel brute-force
+                mekanizmalarını ve çoklu kombinasyon denemelerini simüle eden siber güvenlik aracı.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">Brute-Force</span>
+              <span class="proj-tag mono">Kripto</span>
+              <span class="proj-tag mono">Güvenlik</span>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="tool" id="proj-asistan">
+            <div class="project-card-top">
+              <div class="project-meta">
+                <span class="project-type mono">Güvenlik Aracı</span>
+                <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                  rel="noopener noreferrer" class="github-link" aria-label="GitHub bağlantısı">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                </a>
+              </div>
+              <h3 class="project-title">Python-Sesli-Asistan</h3>
+              <p class="project-desc">Sesli komutları analiz ederek sistem görevleri gerçekleştiren; YZ entegrasyonuna
+                açık modüler asistan altyapısı. Doğal dil işlemeye giriş niteliğinde.</p>
+            </div>
+            <div class="project-tags">
+              <span class="proj-tag mono">Python</span>
+              <span class="proj-tag mono">NLP</span>
+              <span class="proj-tag mono">Speech</span>
+              <span class="proj-tag mono">Asistan</span>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="show-more-wrap" id="show-more-wrap" style="display:none;">
+          <button class="btn btn-ghost show-more-btn" id="show-more-btn">
+            <span id="show-more-text">Tümünü Göster</span>
+            <svg id="show-more-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════ ACHIEVEMENTS ══ -->
+    <section id="achievements" class="section achievements-section" aria-label="Başarılar bölümü">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag mono">// 03</span>
+          <h2 class="section-title">Başarılar & Sertifikalar</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="achievements-layout">
+          <!-- Timeline -->
+          <div class="timeline-wrap">
+            <h3 class="sub-heading mono">Kronoloji_</h3>
+            <ol class="timeline" aria-label="Başarı zaman çizelgesi">
+              <li class="timeline-item" id="ach-1">
+                <div class="tl-marker"></div>
+                <div class="tl-content">
+                  <span class="tl-date mono">2024</span>
+                  <h4 class="tl-title">CompTIA Security+</h4>
+                  <p class="tl-desc">Ağ güvenliği, şifreleme, tehdit analizi ve kimlik yönetimi alanlarını kapsayan
+                    endüstri standardı sertifikasyon.</p>
+                  <span class="tl-badge mono">Sertifika</span>
+                </div>
+              </li>
+              <li class="timeline-item" id="ach-2">
+                <div class="tl-marker"></div>
+                <div class="tl-content">
+                  <span class="tl-date mono">2024</span>
+                  <h4 class="tl-title">HTB Pro Hacker Rankı</h4>
+                  <p class="tl-desc">Hack The Box platformunda Pro Hacker seviyesine ulaşıldı. 21 kullanıcı, 13 root
+                    bayrağı elde edildi.</p>
+                  <span class="tl-badge mono">Platform Başarısı</span>
+                </div>
+              </li>
+              <li class="timeline-item" id="ach-3">
+                <div class="tl-marker"></div>
+                <div class="tl-content">
+                  <span class="tl-date mono">2024</span>
+                  <h4 class="tl-title">TryHackMe — İlk 25 Oda Tamamlandı</h4>
+                  <p class="tl-desc">TryHackMe platformunda Linux temelleri, web uygulama güvenliği ve ağ saldırı
+                    odaları dahil 25+ oda başarıyla tamamlandı.</p>
+                  <span class="tl-badge mono">Platform İlerlemesi</span>
+                </div>
+              </li>
+              <li class="timeline-item" id="ach-4">
+                <div class="tl-marker"></div>
+                <div class="tl-content">
+                  <span class="tl-date mono">2024</span>
+                  <h4 class="tl-title">Veri Yapıları & Algoritmalar Ders Projesi</h4>
+                  <p class="tl-desc">Aksaray Üniversitesi'nde Python ile geliştirilmiş graf tabanlı ağ simülasyon
+                    projesi. Dijkstra ve BFS algoritmalarının güvenlik senaryolarına uyarlanması.</p>
+                  <span class="tl-badge mono">Akademik</span>
+                </div>
+              </li>
+              <li class="timeline-item" id="ach-5">
+                <div class="tl-marker"></div>
+                <div class="tl-content">
+                  <span class="tl-date mono">2025</span>
+                  <h4 class="tl-title">Siber Güvenlik Kariyerine Geçiş — Yol Haritası Aktif</h4>
+                  <p class="tl-desc">Lisans eğitimini siber güvenlik uzmanlığına köprü olarak konumlandırarak pratik lab
+                    çalışmaları, araç geliştirme ve sertifikasyon hazırlığına başlandı.</p>
+                  <span class="tl-badge mono">Kişisel Hedef</span>
+                </div>
+              </li>
+              <li class="timeline-item" id="ach-6">
+                <div class="tl-marker"></div>
+                <div class="tl-content">
+                  <span class="tl-date mono">2026</span>
+                  <h4 class="tl-title">Bu Portfolyo Sitesi</h4>
+                  <p class="tl-desc">Siber güvenlik yolculuğunu, öğrenimini ve projelerini belgeleyen kişisel portfolyo
+                    sitesi yayına alındı.</p>
+                  <span class="tl-badge mono">Milestone</span>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Certs Grid -->
+          <div class="cert-wrap">
+            <h3 class="sub-heading mono">Sertifikalar_</h3>
+            <div class="cert-grid">
+              <div class="cert-card" id="cert-aksaray">
+                <div class="cert-code mono">AÜ</div>
+                <div class="cert-info">
+                  <span class="cert-name">Yazılım Mühendisliği Lisansı</span>
+                  <span class="cert-issuer mono">Aksaray Üniversitesi — Devam</span>
+                </div>
+                <div class="cert-status cert-progress mono">3. Sınıf</div>
+              </div>
+              <div class="cert-card" id="cert-thm">
+                <div class="cert-code mono">THM</div>
+                <div class="cert-info">
+                  <span class="cert-name">Pre-Security Path</span>
+                  <span class="cert-issuer mono">TryHackMe — 2024</span>
+                </div>
+                <div class="cert-status cert-valid mono">Tamamlandı</div>
+              </div>
+              <div class="cert-card" id="cert-py">
+                <div class="cert-code mono">PY</div>
+                <div class="cert-info">
+                  <span class="cert-name">Python Programlama</span>
+                  <span class="cert-issuer mono">Ders Müfredatı — 2024</span>
+                </div>
+                <div class="cert-status cert-valid mono">Tamamlandı</div>
+              </div>
+              <div class="cert-card" id="cert-ejpt-plan">
+                <div class="cert-code mono">eJPT</div>
+                <div class="cert-info">
+                  <span class="cert-name">Junior Penetration Tester</span>
+                  <span class="cert-issuer mono">eLearnSecurity — Planlanan</span>
+                </div>
+                <div class="cert-status cert-progress mono">Hedef</div>
+              </div>
+              <div class="cert-card" id="cert-secplus-plan">
+                <div class="cert-code mono">SEC+</div>
+                <div class="cert-info">
+                  <span class="cert-name">CompTIA Security+</span>
+                  <span class="cert-issuer mono">CompTIA — Planlanan</span>
+                </div>
+                <div class="cert-status cert-progress mono">Hedef</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ CONTACT -->
+    <section id="contact" class="section contact-section" aria-label="İletişim bölümü">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-tag mono">// 04</span>
+          <h2 class="section-title">İletişim</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="contact-layout">
+          <div class="contact-info">
+            <h3 class="sub-heading mono">Bağlantı Kur_</h3>
+            <p class="body-text">
+              Ortak proje fikirleri, siber güvenlik öğrenimi üzerine tavsiyeler veya herhangi bir teknik soru için
+              doğrudan iletişime geçebilirsiniz. Mesajlara en geç 48 saat içinde dönüş yapıyorum.
+            </p>
+            <div class="contact-links">
+              <a href="https://github.com/KaganYildirimJuniorDev?tab=repositories" target="_blank"
+                rel="noopener noreferrer" class="contact-social-link" id="link-github">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                <span>github.com/KaganYildirimJuniorDev</span>
+              </a>
+              <a href="https://www.linkedin.com/in/kaganyildirimdevdev/" target="_blank" rel="noopener noreferrer"
+                class="contact-social-link" id="link-linkedin">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+                <span>linkedin.com/in/kaganyildirimdev</span>
+              </a>
+              <a href="mailto:kaganyildirimdev@gmail.com" class="contact-social-link" id="link-email">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                  aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <polyline points="2,4 12,13 22,4" />
+                </svg>
+                <span>kaganyildirimdev@gmail.com</span>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contact-form" novalidate aria-label="İletişim formu">
+            <div class="form-group">
+              <label class="form-label mono" for="form-name">İsim_</label>
+              <input type="text" id="form-name" name="name" class="form-input" placeholder="Ali Kagan Yildirim"
+                autocomplete="name" required />
+              <span class="form-error" id="err-name" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label mono" for="form-email">E-posta_</label>
+              <input type="email" id="form-email" name="email" class="form-input" placeholder="kullanici@domain.com"
+                autocomplete="email" required />
+              <span class="form-error" id="err-email" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label mono" for="form-subject">Konu_</label>
+              <input type="text" id="form-subject" name="subject" class="form-input"
+                placeholder="İş Birliği / Güvenlik Değerlendirmesi / Soru" required />
+              <span class="form-error" id="err-subject" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label mono" for="form-message">Mesaj_</label>
+              <textarea id="form-message" name="message" class="form-input form-textarea"
+                placeholder="Mesajınızı buraya yazın..." rows="5" required></textarea>
+              <span class="form-error" id="err-message" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn-outline btn-full" id="form-submit">
+              <span id="submit-text">Mesajı Gönder</span>
+              <span id="submit-ok" class="hidden mono">✓ Gönderildi</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════ FOOTER ══ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <span class="footer-logo mono">[Auxy_]</span>
+      <span class="footer-copy mono">© 2026 Auxy — Tüm hakları saklıdır.</span>
+      <span class="footer-note mono">v1.0.0 — HTTPS Güvenli</span>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-top" id="back-top" aria-label="Sayfanın başına dön" title="Başa Dön">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      aria-hidden="true">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
